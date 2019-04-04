@@ -1,0 +1,125 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+
+</head>
+
+<body style="background-color: #333344">
+<h2 style="text-align: center; margin-top: 1em; color: white">Create Student Account</h2><br>
+<div class="container" style="width: 30%; margin-top: 1em; margin-bottom: 2em; background-color: white; padding: 2em; border: 1px solid #333344; border-radius: 4px;">
+    
+    	<form method="post" action="/registerStudentAccount" method="post" name="myForm" ng-app="myApp" ng-controller="myControl">
+    	
+		  <div class="form-group">
+			<label for="f1">Username</label>
+			<input id="f1" type="text" name="myUsername" class="form-control" ng-model="username" ng-pattern="/^[a-zA-Z0-9]{3,20}$/" ng-change="remove_validity()" required><small style="color: red" ng-show="myForm.myUsername.$error.pattern || (myForm.myUsername.$dirty && myForm.myUsername.$invalid)">Username is invalid</small>
+        <span ng-show="myForm.myUsername.$valid"><br><button style="padding: 3px;font-size: 12px; padding-left: 4px; padding-right: 4px;" class="btn btn-info" ng-click="check_validity(username)">Available?</button>&nbsp;&nbsp;<span style="color: {{color_validity}}">{{validity}}</span>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f2">Email</label>
+			<input id="f2" class="form-control" type="email" name="myEmail" ng-model="email" required>
+        <small style="color: red" ng-show="(myForm.myEmail.$dirty && myForm.myEmail.$invalid) || myForm.myEmail.$error.email">Enter a valid Email-id
+        </small>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f3">First Name</label>
+			<input id="f3" class="form-control" type="text" name="myFirstname" ng-model="firstname" required>
+        <small style="color: red" ng-show="myForm.myFirstname.$dirty && myForm.myFirstname.$invalid">Enter your first name
+        </small>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f4">Last Name</label>
+			<input id="f4" class="form-control" type="text" name="myLastname" ng-model="lastname" required>
+        <small style="color: red" ng-show="myForm.myLastname.$dirty && myForm.myLastname.$invalid">Enter your last name
+        </small>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f5">Mobile</label>
+			<input id="f5" class="form-control" type="number" name="myMobile" ng-model="mobile" ng-pattern="/^[0-9]{10}$/" required>
+        <small style="color: red" ng-show="myForm.myMobile.$error.pattern || (myForm.myMobile.$dirty && myForm.myEmail.$invalid)">Enter a valid Mobile No.
+        </small>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f7">Password</label>
+			<input id="f7" type="password" class="form-control" name="myPassword" ng-model="password" ng-change="analyze(password)" required>
+        	<small style="color: {{strength_color}}">{{strength}}</small>
+		  </div>
+		  
+		  <div class="form-group">
+			<label for="f8">Re-enter Password</label>
+			<input id="f8" class="form-control" type="password" name="myRepassword" ng-model="repassword" required>
+            <small style="color: red" ng-show="myForm.myRepassword.$dirty && password != repassword">Password does not match</small>
+            <small style="color: green" ng-show="myForm.myRepassword.$dirty && password == repassword">Matches the password</small>
+		  </div>
+		  
+		  <input type="submit" class="btn btn-success" ng-disabled="myForm.myEmail.$invalid || myForm.myFirstname.$invalid || myForm.myLastname.$invalid || myForm.myUsername.$invalid || myForm.myPassword.$invalid || password != repassword || canSubmit">
+		</form>
+
+     <h5 style="color: darkred;">Already have an account? <a href="/loginS">LogIn</a></h5>
+      
+</div>
+    
+    
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myControl', function($scope, $http) {
+            $scope.strength = "";
+            var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+            var mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
+            $scope.analyze = function(value) {
+                if (strongRegex.test(value)) {
+                    $scope.strength_color = "green";
+                    $scope.strength = "Strong";
+                } else if (mediumRegex.test(value)) {
+                    $scope.strength_color = "orange";
+                    $scope.strength = "Good";
+                } else {
+                    $scope.strength_color = "red";
+                    $scope.strength = "Weak";
+                }
+            };
+            $scope.check_validity = function(value) {
+                $scope.canSubmit = true;
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/checkValidUsername',
+                    dataType: "json",
+                    data: {
+                        'username': value
+                    },
+                    contentType: "application/json",
+                }).then(function(response) {
+                    var ans = response.data['result'];
+                    if (ans == "yes") {
+                        $scope.validity = "Available";
+                        $scope.canSubmit = false;
+                    } else if (ans == "no") {
+                        $scope.validity = "Not Available";
+                    } else {
+                        $scope.validity = "No response from server, Click Again !";
+                    }
+                    $scope.color_validity = response.data['color'];
+                }, function(response) {
+                });
+            };
+            
+            $scope.remove_validity = function() {
+                $scope.validity = "";
+                $scope.canSubmit = true;
+            };
+        });
+    </script>
+    
+
+</body>
+
+</html>

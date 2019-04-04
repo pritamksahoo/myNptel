@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Productivo | Contributions</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="/css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+	<style>
+		.wrapper{
+		  width:90%;
+		}
+		@media(max-width:992px){
+		 .wrapper{
+		  width:100%;
+		} 
+		}
+		.panel-heading {
+		  padding: 0;
+			border:0;
+		}
+		.panel-title>a, .panel-title>a:active{
+			display:block;
+			padding:15px;
+		  color:#555;
+		  font-size:16px;
+		  font-weight:bold;
+			text-transform:uppercase;
+			letter-spacing:1px;
+		  word-spacing:3px;
+			text-decoration:none;
+		}
+		.panel-heading  a:before {
+		   font-family: 'Glyphicons Halflings';
+		   content: "\e114";
+		   float: right;
+		   transition: all 0.5s;
+		}
+		.panel-heading.active a:before {
+			-webkit-transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			transform: rotate(180deg);
+		} 
+	</style>
+	
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+	<!-- Modernizr JS -->
+	<script src="/js/modernizr-2.6.2.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+	
+<div class="modal fade" id="modal_new_course" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: #123456">
+        Add a New Course
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form method="post" action="/addnewcourse">
+		  <div class="form-group">
+			<label for="c1">Course Name</label>
+			<input id="c1" name="course_name" type="text" class="form-control" placeholder="Enter course name">
+			<small id="emailHelp" class="form-text text-muted">Course Name should be unique</small>
+		  </div>
+		  <div class="form-group">
+			<label for="t1">Topic</label>
+				<div class="row-fluid">
+				  <select id="t1" name="topic_name" class="selectpicker" data-show-subtext="true" data-live-search="true">
+				  	 <% for (var i=0; i<course_topics.length; i++) { %>
+					<option value="<%= course_topics[i].topic_name %>"><%= course_topics[i].topic_name %></option>
+					 <% } %>
+				  </select>
+				</div>
+		  </div>
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+		  <button type="submit" class="btn btn-success">Save & Next</button>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal_err_dup_course" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="color: #654321">
+        <b>Alert !</b>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	  <h5>ERR_MSG : Couse with same name is already there ! Try with another name.</h5><br>
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">Okay, Got It</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						<p class="num">Call: +91 740 736 4481</p>
+						<ul class="fh5co-social">
+							<li><a href="https://twitter.com/PritamK37149199" target='_blank'><i class="icon-twitter"></i></a></li>
+							<li><a href="https://github.com/pritamksahoo" target='_blank'><i class="icon-github"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-1">
+						<div id="fh5co-logo"><a href="ins_index.ejs">Productivo<span>.</span></a></div>
+					</div>
+					<div class="col-xs-11 text-right menu-1">
+						<ul>
+							<li class="active"><a href="http://localhost:3000/i_overview">Home</a></li>
+							<li><a href="http://localhost:3000/viewInsCourses">Your Courses</a></li>
+							<li><a href="http://localhost:3000/contactUs">Contact</a></li>
+							<li class="btn-cta"><a href="#"><span>Welcome, <%=whoami%></span></a></li>
+							<li class="btn-cta"><a href="http://localhost:3000/ILogOut"><span>LogOut</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg); height: 150px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+	</header>
+	
+
+	<div class="container" style="margin-top: 12em; padding-bottom: 4em;">
+	<div class="row">
+	  <div class="col-md-8">
+		<br>
+		<div class="row">
+			<div class="input-group col-xs-10">
+				<span class="input-group-btn">
+					<button class="browse btn input-lg" type="submit" style="background-color: #333344; color: white">
+					<i class="glyphicon glyphicon-education" style="color: white"></i>
+					 Your Courses
+					 </button>
+					 <button class="course_new btn input-lg" style="margin-left: 1em; background-color: #883443; color: white">
+					<i class="browse glyphicon glyphicon-plus" style="color: white"></i>
+					 Add New
+					 </button>
+				 </span>
+			 </div>
+		 </div>
+		 <br>
+		<div class="row">
+			
+		<div class="wrapper">
+		  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		  <% if (data.length == 0) { %>
+		  	<div class="alert alert-warning">
+		  	No courses here! Click on the '<b>Add New</b>' button to create a free course
+		  	</div>
+		  <% } %>
+		  <% for (var i=0; i<data.length; i++) { %>
+		  
+		  <div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingOne" style="background-color: #233332" >
+			  <h5 class="panel-title">
+				<a style="font-family: arial; font-size: 13px; color: #deefde" class="collapsed" role="button" id="show" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="collapseOne">
+				  <%= data[i][0] %> | <span style="float: right; font-size: 10px; color: grey"><%= data[i][1] %>&nbsp;&nbsp;</span>
+				<span style="font-size: 10px; color: grey">
+				  Enrolled : <%= data[i][4] %> &nbsp;&nbsp;
+				  Rating : <%= data[i][3] %> &nbsp;&nbsp;
+				  Status : <%= data[i][2] %> &nbsp;&nbsp;
+				</span>
+				</a>
+				
+			  </h5>
+			   
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+			  <div class="panel-body">
+			    <form action="/editCourse" method="POST">
+			    	<input type="text" value="<%= whoami %>" name="instructor" hidden>
+			    	<input type="text" value="<%= data[i][0] %>" name="course_name" hidden>
+			    	<input type="text" value="<%= data[i][1] %>" name="topic_name" hidden>
+			  		<button class="btn btn-danger" type="submit" style="color: white">
+					<i class="glyphicon glyphicon-pencil" style="color:white"></i> Edit
+					</button>
+				</form><br>
+			    <ul class="list-group">
+			    <% 
+			    for(var j=0; j<data[i][5].length; j++) { 
+			    %>
+			      <% if (data[i][5][j] == "none") { %>
+				  	<li class="list-group-item">No Article</li>
+				  <% } else { %>
+				  	<li class="list-group-item">
+				  	<%= data[i][5][j] %>
+					<a class="btn" type="submit" style="background-color: white;" target="_blank" href="http://localhost:3000/viewFile?filename=<%= data[i][5][j] %>&course_name=<%=data[i][0]%>&user=<%=whoami%>">
+					<i class="glyphicon glyphicon-eye-open" style="color: #333344"></i>
+					 </a>
+				  	</li>
+				  <% } %>
+				<% } %>
+				</ul>
+			  </div>
+			</div>
+		  </div>
+		  
+		  <% } %>
+		  
+		</div>
+		</div>
+			
+		<script>
+		$('document').ready(function() {
+			var msg = "<%= message %>";
+			if (msg == 'err_dup_course') {
+				console.log(msg);
+				$("#modal_err_dup_course").modal('show');
+			}
+		});
+
+		$('.collapsed').on('click', function() {
+			var id = $(this).attr('id');
+			if (id == 'show') {
+				$(this).parent().parent().parent().find('div:eq(1)').collapse("show");
+				$(this).attr('id', 'hide');
+				$(this).parent().parent().addClass('active');
+			} else {
+				$(this).parent().parent().parent().find('div:eq(1)').collapse("hide");
+				$(this).attr('id', 'show');
+				$(this).parent().parent().removeClass('active');
+			}
+		});
+		
+		$('.course_new').on('click', function() {
+			$('#modal_new_course').modal('show');
+		});
+		
+		</script>
+			
+			
+		</div>
+	  </div>
+	  <div class="col-md-4" style="margin-top: 1.5em;">
+	  		<div class="row">
+				<div class="input-group col-xs-10">
+					<span class="input-group-btn">
+						<button class="browse btn input-lg" type="submit" style="background-color: #333344; color: white">
+						<i class="glyphicon glyphicon-trash" style="color: white"></i>
+						 Remove Courses
+						 </button>
+					 </span>
+				 </div>
+			 </div><br>
+			 
+			 <div class="row">
+				<% if (message == 'ok_rem_course') { %>
+				<div class="alert alert-info alert-dismissible fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			 	Course has been successfully removed</div>
+			 <% } else if (message == 'err_no_course') { %>
+			 <div class="alert alert-danger alert-dismissible fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			 	No such course exists ! Try again</div>
+			 <% } else if (message == 'err_rem_course') { %>
+			 <div class="alert alert-danger alert-dismissible fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			 	Error in removing ! Try again</div>
+			 <% } else { %>
+			 
+			 <% } %>
+			  </div>
+			   
+			 <div class="row">
+				 <form method="post" action="/removeCourse">
+				  <div class="form-group">
+				  	<input type="text" name="instructor" value="<%=whoami%>" hidden />
+					<label for="c1">Course Name</label>
+						<div class="row-fluid">
+						  <select id="c1" name="course_name" class="selectpicker" data-show-subtext="true" data-live-search="true">
+						  	 <% for (var i=0; i<data.length; i++) { %>
+							<option value="<%= data[i][0] %>"><%= data[i][0] %></option>
+							 <% } %>
+						  </select>
+						</div>
+				  </div>
+				  <div class="form-group">
+					<label for="t1">Topic</label>
+						<div class="row-fluid">
+						  <select id="t1" name="topic_name" class="selectpicker" data-show-subtext="true" data-live-search="true">
+						  	 <% for (var i=0; i<course_topics.length; i++) { %>
+							<option value="<%= course_topics[i].topic_name %>"><%= course_topics[i].topic_name %></option>
+							 <% } %>
+						  </select>
+						</div>
+				  </div>
+				  <div class="input-group col-xs-10">
+				  <span class="input-group-btn">
+				  <button type="submit" class="btn input-lg" style="background-color: #883443; color: white">
+				  <i class="glyphicon glyphicon-ok" style="color: white"></i> 
+				   Yes, Remove
+				  </button>
+				  </span>
+				  </div>
+				</form>
+			  </div>
+	  </div>
+	  </div>
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Learning</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learning</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Course</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Meetups</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learn &amp; Grow</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Testimonials</a></li>
+						<li><a href="#">Handbook</a></li>
+						<li><a href="#">Held Desk</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Engage us</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Marketing</a></li>
+						<li><a href="#">Visual Assistant</a></li>
+						<li><a href="#">System Analysis</a></li>
+						<li><a href="#">Advertise</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Legal</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Find Designers</a></li>
+						<li><a href="#">Find Developers</a></li>
+						<li><a href="#">Teams</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">API</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+	</body>
+</html>
+

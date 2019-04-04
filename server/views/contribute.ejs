@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Productivo | Contribute</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="/css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+	<!-- Modernizr JS -->
+	<script src="/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+	
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						<p class="num">Call: +91 740 736 4481</p>
+						<ul class="fh5co-social">
+							<li><a href="https://twitter.com/PritamK37149199" target='_blank'><i class="icon-twitter"></i></a></li>
+							<li><a href="https://github.com/pritamksahoo" target='_blank'><i class="icon-github"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-1">
+						<div id="fh5co-logo"><a href="ins_index.ejs">Productivo<span>.</span></a></div>
+					</div>
+					<div class="col-xs-11 text-right menu-1">
+						<ul>
+							<li class="btn-cta"><a href="#"><span>Welcome, <%=whoami%></span></a></li>
+							<li class="btn-cta"><a href="http://localhost:3000/ILogOut"><span>LogOut</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg); height: 150px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+	</header>
+	
+
+	<div class="container" style="margin-top: 12em; padding-bottom: 4em;">
+		<div class="row" style=" padding-left: 1em; margin-top: 2em; margin-bottom: 1.5em; border: 2px solid #233332; border-radius: 3px;">
+			<h4><b><%=course_name%></b></h4><h5><%=topic_name%></h5>
+		</div>
+		
+		<div class="row">
+			
+		</div>
+		
+		<div class="col-md-6" id="upload" style="padding-left: 0em;">
+		
+		<div class="row">
+		<div class="input-group col-xs-10">
+		  <span class="input-group-btn">
+			  <button class="browse btn input-lg" type="button" style="background-color: #233332; color: white">
+			  <i class="browse glyphicon glyphicon-pencil" style="color: white"></i> 
+			  Upload New Articles
+			  </button>
+		  </span>
+		</div><br>
+		</div>
+		
+		<form name="uploadForm" id="lastrow" method="POST" action="/updateCourse" enctype="multipart/form-data">
+			<div class="row">
+			  <div class="form-group">
+				<input type="file" name="articles[]" multiple class="file hidden">
+				<div class="input-group col-xs-10">
+				  <span class="input-group-btn"><button class="browse btn input-lg" type="button" style="background-color: #233332"><i class="browse glyphicon glyphicon-paperclip" style="color: white"></i></button></span>
+				  <input type="text" class="form-control input-lg" disabled placeholder="Attach file" style="background-color: white;">
+				  <span class="input-group-btn">
+					  <button class="btn input-lg" type="submit" style="background-color: #333344; color: white">
+					  <i class="browse glyphicon glyphicon-cloud-upload" style="color: white"></i> 
+					  </button>
+					<button class="edit btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-edit"></i></button>
+					<button class="remove btn btn-danger input-lg" type="button"><i class="glyphicon glyphicon-floppy-remove"></i></button>
+				  </span>
+				</div>
+			  </div>
+			</div>
+		  </form>
+		  
+		</div>
+		
+		<div class="col-md-6" style="padding-left: 0em;" ng-app="myApp" ng-controller="myControl">
+			<% if (articles != 0) { %>
+				
+				<div class="row">
+					<div class="input-group col-xs-10">
+					  <span class="input-group-btn">
+						  <button class="browse btn input-lg" type="button" style="background-color: #233332; color: white" ng-click="fetchAllArticles();">
+						  <i class="browse glyphicon glyphicon-pencil" style="color: white"></i> 
+						  Remove Old Articles
+						  </button>
+						  <button class="browse btn input-lg" type="button" style="background-color: #455554; color: white" ng-click="HideAllArticles();" ng-show="!donotshow">
+						  <i class="browse glyphicon glyphicon-indent-left" style="color: white"></i> 
+						  Hide
+						  </button>
+					  </span>
+					</div>
+				</div>
+			<% } %>
+			<br>
+			<div class="old row" ng-show="!donotshow">
+				<div class="input-group col-xs-10" style="margin-bottom: 1em;" ng-repeat="file in all_files">
+					<input type="text" value="{{file}}" class="form-control input-lg" disabled style="background-color: white;">
+					<span class="input-group-btn">
+						<button class="delete btn btn-danger input-lg" type="button" ng-click="removeArticle(file);">
+						<i class="glyphicon glyphicon-trash"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+			
+			<form method="post" action="/publish">
+			<div class="skip row">
+				<div class="input-group col-xs-10">
+					<span class="input-group-btn">
+						<button class="browse btn input-lg" type="submit" style="background-color: #333344; color: white">
+						<i class="browse glyphicon glyphicon-ok" style="color: white"></i>
+						 Done? OK
+						 </button>
+					 </span>
+				 </div>
+			 </div>
+			 </form>
+		</div>
+		
+		
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Learning</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learning</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Course</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Meetups</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learn &amp; Grow</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Testimonials</a></li>
+						<li><a href="#">Handbook</a></li>
+						<li><a href="#">Held Desk</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Engage us</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Marketing</a></li>
+						<li><a href="#">Visual Assistant</a></li>
+						<li><a href="#">System Analysis</a></li>
+						<li><a href="#">Advertise</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Legal</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Find Designers</a></li>
+						<li><a href="#">Find Developers</a></li>
+						<li><a href="#">Teams</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">API</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	
+	<script>
+		
+		$(document).on('click', '.browse', function(){
+		  var file = $(this).parent().parent().parent().find('.file');
+		  file.trigger('click');
+		});
+		
+		$(document).on('change', '.file', function(){
+		  $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+		});
+		
+		$(document).on('click', '.edit', function(){
+		  var rowdiv = $(this).parent().parent().parent();
+		  rowdiv.html("<input type='file' name='articles[]' multiple class='file hidden'><div class='input-group col-xs-10'><span class='input-group-btn'><button class='browse btn input-lg' type='button' style='background-color: #233332'><i class='browse glyphicon glyphicon-paperclip' style='color: white'></i></button></span><input type='text' class='form-control input-lg' disabled placeholder='Attach file' style='background-color: white'><span class='input-group-btn'><button class='btn input-lg' type='submit' style='background-color: #333344; color: white'><i class='browse glyphicon glyphicon-cloud-upload' style='color: white'></i> </button><button class='edit btn btn-primary input-lg' type='button'><i class='glyphicon glyphicon-edit'></i></button><button class='remove btn btn-danger input-lg' type='button'><i class='glyphicon glyphicon-floppy-remove'></i></button></span></div>");
+		});
+		
+		$(document).on('click', '.remove', function(){
+		  var row = $(this).parent().parent().parent().parent().parent();
+		  row.remove();
+		  $('#upload').append("<div class='row'><div class='form-group'><div class='input-group col-xs-10'><span class='input-group-btn'><button class='add btn btn-success input-lg' type='button'><i class='browse glyphicon glyphicon-plus' style='color: white'></i></button></span></div></div></div>");
+		});
+		
+		$(document).on('click', '.add', function(){
+		  var addbtn = $(this).parent().parent().parent().parent();
+		  addbtn.remove();
+		  $('#upload').append("<form name='uploadForm' method='POST' action='/updateCourse' enctype='multipart/form-data'><div class='row'><div class='form-group'><input type='file' name='articles[]' multiple class='file hidden'><div class='input-group col-xs-10'><span class='input-group-btn'><button class='browse btn input-lg' type='button' style='background-color: #233332'><i class='browse glyphicon glyphicon-paperclip' style='color: white'></i></button></span><input type='text' class='form-control input-lg' disabled placeholder='Attach file' style='background-color: white'><span class='input-group-btn'><button class='btn input-lg' type='submit' style='background-color: #333344; color: white'><i class='browse glyphicon glyphicon-cloud-upload' style='color: white'></i> </button><button class='edit btn btn-primary input-lg' type='button'><i class='glyphicon glyphicon-edit'></i></button><button class='remove btn btn-danger input-lg' type='button'><i class='glyphicon glyphicon-floppy-remove'></i></button></span></div></div></div></form>");
+		  
+		});
+		
+		$(document).on('click', '.delete', function(){
+		  var row = $(this).parent().parent();
+		  row.remove();
+		});
+		
+		var app = angular.module('myApp', []);
+		app.controller('myControl', function($scope, $http) {
+			$scope.donotshow = true;
+			
+			$scope.removeArticle = function(v) {
+				
+				$http({
+				  method: 'POST',
+				  url: 'http://localhost:3000/removeArticle',
+				  data: {
+			        'instructor': '<%=whoami%>',
+			        'course_name': '<%=course_name%>',
+			        'article': v
+			      },
+			      contentType: "application/json",
+				}).then(function(response) {
+				  	row.remove();
+				});
+				
+				console.log(row.html);
+				row.remove();
+			} 
+			
+			$scope.fetchAllArticles = function() {
+				if($scope.donotshow == true) {
+					$http({
+				        method: 'POST',
+				        url: 'http://localhost:3000/fetchFiles',
+				        data: {
+				            'instructor': '<%=whoami%>',
+				            'course_name': '<%=course_name%>'
+				        },
+				        contentType: "application/json",
+				    }).then(function(response) {
+				        
+				        var str = "";
+				        var files = response.data['all_files'];
+				        $scope.all_files = files;
+				        $scope.donotshow = false;
+				        
+				    }, function(response) {
+				    
+				    });
+				}
+			}
+			
+			$scope.HideAllArticles = function() {
+				$scope.donotshow = true;
+			}
+			
+		});
+		
+		
+		
+	</script>
+	
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+	</body>
+</html>
+

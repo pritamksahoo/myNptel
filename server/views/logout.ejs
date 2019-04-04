@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+<% if (whoami == 'instructor') { %>
+<META http-equiv="refresh" content="0;http://localhost:3000/loginI">
+<% } else { %>
+<META http-equiv="refresh" content="0;http://localhost:3000/loginS">
+<% } %>
+	<script>
+		history.pushState(null, null, location.href);
+        window.onpopstate = function() {
+            history.go(1);
+        };
+	</script>
+</body>
+</html>

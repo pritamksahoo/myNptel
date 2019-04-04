@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Productivo | Course</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FreeHTML5.co
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="/css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="/css/style.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.checked {
+			color: orange;
+		}
+	</style>
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+	<!-- Modernizr JS -->
+	<script src="/js/modernizr-2.6.2.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+	
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 text-right">
+						<p class="num">Call: +91 740 736 4481</p>
+						<ul class="fh5co-social">
+							<li><a href="https://twitter.com/PritamK37149199" target='_blank'><i class="icon-twitter"></i></a></li>
+							<li><a href="https://github.com/pritamksahoo" target='_blank'><i class="icon-github"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-1">
+						<div id="fh5co-logo"><a href="ins_index.ejs">Productivo<span>.</span></a></div>
+					</div>
+					<div class="col-xs-11 text-right menu-1">
+						<ul>
+							<li class="btn-cta"><a href="#"><span>Welcome, <%=whoami%></span></a></li>
+							<li class="btn-cta"><a href="http://localhost:3000/SLogOut"><span>LogOut</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg); height: 150px;" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+	</header>
+	
+
+	<div class="container" style="margin-top: 12em; padding-bottom: 4em;" ng-app="myApp" ng-controller="myControl">
+		<div class="row" style="padding-bottom: 5px; padding-right: 1em; margin-top: 1em; margin-bottom: 1.5em;">
+			<div class="input-group col-xs-12">
+				<span class="input-group-btn">
+					<a class="btn btn-default" href="http://localhost:3000/viewCourses" style="background-color: #333344; color: white">
+					<i class="glyphicon glyphicon-menu-left"></i>
+					 Go Back
+					 </a>
+				 </span>
+			 </div>
+		</div>
+		<div class="row" style="padding-left: 1em; padding-bottom: 5px; padding-right: 1em; margin-top: 1em; margin-bottom: 1.5em; border: 2px solid #233332; border-radius: 3px;">
+			<h4><b><%=course_name%></b> 
+			<b style="float: right">{{overall_rating}} <i class="glyphicon glyphicon-star"></i></b>
+			</h4>
+			<h5 style="color: #777777"><%=topic_name%><i style="float: right;"><%=enroll_count%> enrolled</i>
+			</h5>
+			<hr style="margin-top: 4px; margin-bottom: 1px;">
+			<small>-- <i><%=instructor_fn%> <%=instructor_ln%> | <%=organization%></i></small>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-8" style="margin-left: 0px; padding-left:0px">
+				<ul class="list-group" >
+				    <li class="list-group-item" ><b>ARTICLES</b></li>
+				  <% if (all_articles.length == 0) { %>
+				  	<li class="list-group-item">No Article</li>
+				  <% } else { %>
+				   <% for(var i=0; i<all_articles.length; i++) { %>
+				  	<li class="list-group-item">
+				  	<%=all_articles[i]%>
+				  	<span style="float:right">
+					<a style="background-color: white;" target="_blank" href="http://localhost:3000/viewArticle?filename=<%=all_articles[i]%>&course_name=<%=course_name%>&instructor=<%=instructor%>&user=<%=whoami%>">
+					<i class="glyphicon glyphicon-eye-open" style="color: #883443"></i>
+					 </a>&nbsp;&nbsp;&nbsp;
+					 <a style="background-color: white;" href="http://localhost:3000/downloadArticle?filename=<%=all_articles[i]%>&course_name=<%=course_name%>&instructor=<%=instructor%>&user=<%=whoami%>">
+					 <i class="glyphicon glyphicon-save" style="color: #333344"></i>
+					 </a>&nbsp;
+					 </span>
+				  	</li>
+				   <% } %>
+				  <% } %>
+				</ul>
+			</div>
+			<div class="col-md-4">
+			  <div class="row" style="text-align: right">
+				<div class="input-group col-xs-12">
+					<span class="input-group-btn">
+						<button class="browse btn input-lg" type="submit" style="background-color: #333344; color: white">
+						 Rate This Course
+						 </button>
+					 </span>
+				 </div><br>
+				<input id="rateIt" type="text" name="rate" ng-model="rating" hidden>
+				<span id="1" class="fa fa-star" ng-click="rate(1)"></span>
+				<span id="2" class="fa fa-star" ng-click="rate(2)"></span>
+				<span id="3" class="fa fa-star" ng-click="rate(3)"></span>
+				<span id="4" class="fa fa-star" ng-click="rate(4)"></span>
+				<span id="5" class="fa fa-star" ng-click="rate(5)"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+				<button class="btn btn-warning" ng-click="update_rating(rating)" type="submit">
+				<i class="glyphicon glyphicon-saved"></i>
+				</button>
+			  </div><hr style="margin-left: 2em">
+			  <!--Feedback-->
+			  
+			  <div class="row" style="margin-left: 2em;">
+			  	<div class="form-group shadow-textarea">
+				  <label for="exampleFormControlTextarea6" style="color: #777777">Give Instructor Feedback</label>
+				  <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="Write some honest suggestions here..." ng-model="feedback" style="resize: none" ng-disabled="disFeedback"></textarea>
+				</div>
+					<button class="btn" style="background-color: #333344; color: white" ng-click="send_feedback(feedback)" type="submit">
+					<i class="glyphicon glyphicon-send"></i> Send
+					</button>
+			  </div>
+			</div>
+		</div>
+	
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-3 fh5co-widget">
+					<h4>About Learning</h4>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learning</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Course</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Terms</a></li>
+						<li><a href="#">Meetups</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Learn &amp; Grow</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Privacy</a></li>
+						<li><a href="#">Testimonials</a></li>
+						<li><a href="#">Handbook</a></li>
+						<li><a href="#">Held Desk</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Engage us</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Marketing</a></li>
+						<li><a href="#">Visual Assistant</a></li>
+						<li><a href="#">System Analysis</a></li>
+						<li><a href="#">Advertise</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<h4>Legal</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Find Designers</a></li>
+						<li><a href="#">Find Developers</a></li>
+						<li><a href="#">Teams</a></li>
+						<li><a href="#">Advertise</a></li>
+						<li><a href="#">API</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+	
+	<script>
+		$('document').ready(function() {
+			var rr = "<%=individual_rating%>";
+			//console.log(rr);
+			for (var i=0; i<=rr; i++) {
+				$("#"+i).addClass('checked');
+			}
+		});
+		
+		var app = angular.module('myApp', []);
+		
+		$('.fa').on('click', function() {
+			var id = parseInt($(this).attr('id'));
+			for(var i=id; i>=1; i--) {
+				$("#"+i).addClass('checked');
+			}
+			for(var i=id+1; i<=5; i++) {
+				$("#"+i).removeClass('checked');
+			}
+			$('#rateIt').val(id);
+		});
+		
+		app.controller('myControl', function($scope, $http) {
+		
+			$scope.rating = '<%=individual_rating%>';
+			$scope.old_rating = '<%=individual_rating%>';
+			$scope.overall_rating = '<%=overall_rating%>';
+			$scope.rate_count = '<%=rate_count%>'; 
+			$scope.isRated = '<%=rated%>';
+			$scope.course_name = '<%=course_name%>';
+			$scope.topic_name = '<%=topic_name%>';
+			$scope.instructor = '<%=instructor%>';
+			$scope.user = '<%=whoami%>';
+			$scope.rate = function(v) {
+				$scope.rating = v;
+			};
+			
+			$scope.feedback = "";
+			$scope.disFeedback = false;
+			$scope.send_feedback = function(entry) {
+				$scope.feedback = "Sending...patience!";
+				$scope.disFeedback = true;
+				$http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/sendFeedback',
+                    dataType: "json",
+                    data: {
+                        'sender': $scope.user,
+                        'recipient': $scope.instructor,
+                        'course_name': $scope.course_name,
+                        'message': entry
+                        
+                    },
+                    contentType: "application/json",
+                }).then(function(response) {
+                	var msg = response.data['message'];
+                	if (msg == 'ok_send_feedback') {
+		                alert('Thanks for your suggestion !');
+		                $scope.feedback = "";
+		            } else {
+		            	alert('Some error occurred ! Try again later');
+		            	$scope.feedback = entry;
+		            }
+		            $scope.disFeedback = false;
+		            
+                }, function(response) {
+                	$scope.disFeedback = false;
+                });
+			};
+			
+			
+			$scope.update_rating = function(v) {
+				//console.log(v);
+				$http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/updateRating',
+                    dataType: "json",
+                    data: {
+                        'isRated': $scope.isRated,
+                        'new_rating': v,
+                        'old_rating': $scope.old_rating,
+                        'overall_rating': $scope.overall_rating,
+                        'rate_count': $scope.rate_count,
+                        'course_name': $scope.course_name,
+                        'topic_name': $scope.topic_name,
+                        'instructor': $scope.instructor,
+                        'user': $scope.user
+                        
+                    },
+                    contentType: "application/json",
+                }).then(function(response) {
+                	var msg = response.data['message'];
+                	if (msg == 'ok_rating_update') {
+		                $scope.overall_rating = response.data['new_overall_rating'];
+		                $scope.rate_count = response.data['new_rate_count'];
+		                $scope.isRated = response.data['isRated'];
+		                $scope.old_rating = response.data['new_individual_rating'];
+		                $scope.rating = response.data['new_individual_rating'];
+		                alert('Thanks for your feedback !');
+		            } else {
+		            	alert('Some error occurred ! Try again later');
+		            }
+		            
+                }, function(response) {
+                
+                });
+			};
+		});
+	
+		
+		
+	</script>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="js/jquery.stellar.min.js"></script>
+	<!-- Carousel -->
+	<script src="js/owl.carousel.min.js"></script>
+	<!-- countTo -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+
+	</body>
+</html>
+

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+
+</head>
+
+<body style="background-color: #333344">
+<h2 style="text-align: center; margin-top: 3em; color: white">Login To Productivo</h2><br>
+<div class="container" style="width: 30%; margin-top: 1em; background-color: white; padding: 2em; border: 1px solid #333344; border-radius: 4px;">
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Student</a></li>
+    <li><a data-toggle="tab" href="#menu1">Instructor</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    
+    	<br>
+    	<form method="post" action="/LogIntoStudentAccount" method="post" name="myForm">
+		  <div class="form-group">
+			<label for="c11">Username</label>
+			<input id="c11" name="myUsername" type="text" class="form-control" placeholder="Enter username" required>
+			</div>
+		  <div class="form-group">
+			<label for="t11">Password</label>
+			<input id="t11" name="myPassword" type="password" class="form-control" placeholder="Enter password" required>
+		  </div>
+		  <button type="submit" class="btn btn-success">Submit</button>
+		</form>
+
+     <h5 style="color: darkred;">Don't have an account? <a href="/registerS">Create one</a></h5>
+      
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      
+      <br>
+    	<form method="post" action="/LogIntoInstructorAccount" method="post">
+		  <div class="form-group">
+			<label for="c12">Username</label>
+			<input id="c12" name="myUsername" type="text" class="form-control" placeholder="Enter username" required>
+			</div>
+		  <div class="form-group">
+			<label for="t12">Password</label>
+			<input id="t12" name="myPassword" type="password" class="form-control" placeholder="Enter password" required>
+		  </div>
+		  <button type="submit" class="btn btn-success">Submit</button>
+		</form>
+
+     <h5 style="color: darkred">Don't have an account? <a href="/registerI">Create one</a></h5>
+      
+    </div>
+  </div>
+</div>
+    
+
+</body>
+
+</html>

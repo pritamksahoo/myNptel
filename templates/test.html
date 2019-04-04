@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.1/angular.min.js"></script>
+
+    <style>
+        input.ng-invalid {
+            background-color: maroon;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>Enter LogIn Credentials . . .</h3>
+    <hr><br>
+    <form action="/LogIntoStudentAccount" method="post" name="myForm" ng-app="myApp" ng-controller="myControl">
+
+        Username : <input type="text" name="myUsername" ng-model="username" required>&nbsp;&nbsp;
+        <span style="color: red" ng-show="myForm.myUsername.$dirty && myForm.myUsername.$invalid">Username is required</span><br><br>
+
+        Password : <input type="password" name="myPassword" ng-model="password" required><br><br>
+        <input type="submit" ng-disabled="myForm.myUsername.$invalid || myForm.myPassword.$invalid"><br><br>
+        <hr>
+
+    </form>
+
+    <h4 style="color: darkred">Don't have an account? <a href="/register">Create one</a></h4>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myControl', function($scope, $http) {
+
+            $scope.check_validity = function(value) {
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8080/checkValidUsername',
+                    data: {
+                        'username': value
+                    }
+                }).then(function(response) {
+                    $scope.validity = response.data['result'];
+                    $scope.color_validity = response.data['color'];
+                }, function(response) {
+
+                });
+            };
+        });
+
+    </script>
+
+</body>
+
+</html>
